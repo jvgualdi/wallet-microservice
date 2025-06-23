@@ -3,7 +3,7 @@ spring:
     name: wallet-service
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/walletdb?
+    url: jdbc:postgresql://localhost:5432/walletdb
     username: postgres
     password: ${DB_PASS}
   jpa:
@@ -19,6 +19,7 @@ spring:
     listener:
       simple:
         concurrency: 3
+    queue: ${queue.name}
 
 security:
   jwt:
