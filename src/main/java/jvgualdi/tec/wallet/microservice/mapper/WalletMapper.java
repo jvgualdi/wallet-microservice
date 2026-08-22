@@ -2,13 +2,13 @@ package jvgualdi.tec.wallet.microservice.mapper;
 
 import jvgualdi.tec.wallet.microservice.domain.Wallet;
 import jvgualdi.tec.wallet.microservice.dto.WalletResponse;
-import org.mapstruct.Mapper;
 
-import java.math.BigDecimal;
+public final class WalletMapper {
 
-@Mapper(componentModel = "spring")
-public interface WalletMapper {
+    private WalletMapper() {
+    }
 
-    WalletResponse toResponse(Wallet wallet);
-
+    public static WalletResponse toResponse(Wallet wallet) {
+        return new WalletResponse(wallet.getCustomerId(), wallet.getBalance());
+    }
 }

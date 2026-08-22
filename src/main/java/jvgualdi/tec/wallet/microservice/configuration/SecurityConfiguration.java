@@ -28,7 +28,7 @@ public class SecurityConfiguration {
         http.csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session ->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("wallets/**").hasRole("CUSTOMER")
+                        .requestMatchers("/wallets/**").hasRole("CUSTOMER")
                         .anyRequest().authenticated())
                 .addFilterBefore(requestFilter, UsernamePasswordAuthenticationFilter.class);
 

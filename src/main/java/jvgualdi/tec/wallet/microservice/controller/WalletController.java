@@ -16,12 +16,11 @@ import java.math.BigDecimal;
 public class WalletController {
 
     private final WalletService service;
-    private final WalletMapper mapper;
 
     @GetMapping("/{customerId}")
     public ResponseEntity<WalletResponse> get(@PathVariable Long customerId) {
         var wallet = service.getOrCreate(customerId);
-        var walletResponse = mapper.toResponse(wallet);
+        var walletResponse = WalletMapper.toResponse(wallet);
         return ResponseEntity.ok(walletResponse);
     }
 
